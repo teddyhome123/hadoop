@@ -1,0 +1,53 @@
+version: "2"
+services:
+  namenode:
+    image: apache/hadoop:3.3.6
+    hostname: namenode
+    command: ["hdfs", "namenode"]
+    ports:
+      - 9870:9870
+        #- 30002:30002
+    env_file:
+      - ./config
+    environment:
+      - ENSURE_NAMENODE_DIR=/tmp/hadoop-root/dfs/name
+        # - HADOOP_OPTS=-javaagent:/opt/prometheus/jmx_prometheus_javaagent-0.20.0.jar=30002:/opt/prometheus/namenode.yaml
+    volumes:
+      - /home/teddy/repo/prometheus/jmx_prometheus_javaagent-0.20.0.jar:/opt/prometheus/jmx_prometheus_javaagent-0.20.0.jar
+      - /home/teddy/repo/prometheus/yaml/namenode.yaml:/opt/prometheus/namenode.yaml
+      - /home/teddy/repo/testdata/:/opt/testdata  
+  datanode1:
+    image: apache/hadoop:3.3.6
+    command: ["hdfs", "datanode"]
+    env_file:
+      - ./config
+
+  datanode2:
+    image: apache/hadoop:3.3.6
+    command: ["hdfs", "datanode"]
+    env_file:
+      - ./config
+
+  resourcemanager:
+    image: apache/hadoop:3.3.6
+    hostname: resourcemanager
+    command: ["yarn", "resourcemanager"]
+    ports:
+       - 8088:8088
+    env_file:
+      - ./config
+    volumes:
+      - ./test.sh:/opt/test.sh
+
+  nodemanager1:
+    image: apache/hadoop:3.3.6
+    command: ["yarn", "nodemanager"]
+    env_file:
+      - ./config
+
+  nodemanager2:
+    image: apache/hadoop:3.3.6
+    command: ["yarn", "nodemanager"]
+    env_file:
+      - ./config
+
