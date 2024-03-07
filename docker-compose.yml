@@ -6,12 +6,12 @@ services:
     command: ["hdfs", "namenode"]
     ports:
       - 9870:9870
-        #- 30002:30002
+      - 30002:30002
     env_file:
       - ./config
     environment:
       - ENSURE_NAMENODE_DIR=/tmp/hadoop-root/dfs/name
-        # - HADOOP_OPTS=-javaagent:/opt/prometheus/jmx_prometheus_javaagent-0.20.0.jar=30002:/opt/prometheus/namenode.yaml
+      - HADOOP_OPTS=-javaagent:/opt/prometheus/jmx_prometheus_javaagent-0.20.0.jar=30002:/opt/prometheus/namenode.yaml
     volumes:
       - /home/teddy/repo/prometheus/jmx_prometheus_javaagent-0.20.0.jar:/opt/prometheus/jmx_prometheus_javaagent-0.20.0.jar
       - /home/teddy/repo/prometheus/yaml/namenode.yaml:/opt/prometheus/namenode.yaml
