@@ -26,8 +26,6 @@ Hadoop的Docker-compose架構如下：
 
 在前面設定中，使用jmx_prometheus_javaagent對外映射了30002的port做為prometheus的mertic，
 <img width="521" alt="image" src="https://github.com/teddyhome123/hadoop/assets/89484381/79afdd6c-ff6d-481a-87b7-ffdf8fbd4ef4">
-
-Prometheus Web UI成功獲取port 30002的指標
 <img width="525" alt="image" src="https://github.com/teddyhome123/hadoop/assets/89484381/ac258144-4af3-46e3-ad4a-1724e217fb98">
 
 prometheus的yaml設定如下，對應了前面所說開了30002的port去做metric的收集
