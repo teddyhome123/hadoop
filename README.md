@@ -9,7 +9,7 @@
 
 ## Docker部署
 
-在這次作業中皆是使用Docker進行部署，如下圖
+在這次練習中皆是使用Docker進行部署，如下圖
 ![image](https://github.com/teddyhome123/hadoop/assets/89484381/ca4abb99-7f2d-4f66-b91a-303afccdc2c3)
 
 
@@ -53,8 +53,4 @@ grafana的部分在這次作業中主要只監控namenode，原因是因為監�
 
 最後測試JOB的部分，使用內建的範例去做測試，最後將得到的結果存到redis中當作cache使用。
 ![image](https://github.com/teddyhome123/hadoop/assets/89484381/25e9bdde-4980-4038-afb9-358ef5d49e66)
-
-## 結語
-感謝面試官閱讀至此。在架設過程中，我不僅獲得了對資料處理過程的深入理解，也體驗到了其中的樂趣。雖然由於時間和經驗的限制，無法完全深究每一個細節，但我相信這次的學習對我來說是一次非常寶貴的經驗。
-
 
